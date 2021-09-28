@@ -1,6 +1,9 @@
 # Packaging
 
+<<<<<<< HEAD
 :python:
+=======
+>>>>>>> origin/gh-pages
 
 ## Using setuptools
 

@@ -1,6 +1,5 @@
 # Packaging
 
-:python:
 
 ## Using setuptools
 
