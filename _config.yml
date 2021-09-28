@@ -1,5 +1,5 @@
 remote_theme: Drassil/git-wiki-theme@master
-repository: https://github.com/bhaveshpandey/td-wiki-public
+repository: bhaveshpandey/td-wiki-public
 # (string) Title of your wiki
 title: "wiki"
 # (string) if you've installed your wiki in subfolder, you must change this configuration
