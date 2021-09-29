@@ -4,12 +4,15 @@ Following is an example of how **Sublayers** can be leveraged in a collaborative
 
 For this example, lets assume we have a team of modelers, layout, animators and lighters working on a shot with a character composed of different geometries. For simplicity we will have following hierarchy.
 
-/root
+```text
+
+root
   |__SomeCharacter
   |    |__Jacket
   |    |__Legs
   |__Hat
   |    |__Hatgeo
+```
 
 In the above example, we will have a primitive named **SomeCharacter**, with two children **body**, **legs** and another primitive named **Hat** with a single child **Hatgeo**. As we will see in the example later, we will be using USD's composition arc in conjunction with specifiers to setup a multi-department scene allowing multiple artists to work on items collaboratively.
 

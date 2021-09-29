@@ -1,6 +1,6 @@
 # A Monkey's Wiki to VFX
 
-Welcome to the wiki. Hopefully, you will find this helpful/interesting.
+Welcome to the wiki.
 
 ## Dcc applications
 * [Houdini](dcc/houdini/houdini.md)
@@ -8,7 +8,6 @@ Welcome to the wiki. Hopefully, you will find this helpful/interesting.
 * [Maya - Don't do it!](dcc/maya/maya.md)
 * [Nuke](dcc/nuke/nuke.md)
 * [Blender](dcc/blender/blender.md)
-
 
 ## Software
 * [Python](python/python.md)
