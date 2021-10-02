@@ -1,4 +1,4 @@
-# C++
+# C++
 
 * [Cinder](cinder/cinder.md)
 * [OpenFrameworks](of/of.md)

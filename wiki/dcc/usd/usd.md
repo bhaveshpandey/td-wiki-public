@@ -12,8 +12,9 @@
 * [References](references.md)
 * [Sublayers](sublayers.md)
 * [Payloads](payloads.md)
+* [Stage](stage.md)
 
-## APIs
+## APIs
 * [Python](apis/python.md)
 * [C++](apis/cpp.md)
 * [Plugins](plugins/plugins.md)

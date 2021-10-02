@@ -1,8 +1,8 @@
-# Plugins
+# Plugins
 
 This subwiki documents how we can extend USD's functionality by creating custom plugins.
 
-## Registering Custom Metadata to be tracked in USD files
+## Registering Custom Metadata to be tracked in USD files
 
 We can embed arbitrary kinds of data inside USD files by extending the SDFMetadata using the **plugInfo.json** file as shown below.
 

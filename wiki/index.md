@@ -14,7 +14,7 @@ Welcome to the wiki.
 * [C++](cpp/cpp.md)
 * [Git](git/git.md)
 
-## Database
+## Database
 * [Neo4J](neo4j/neo4j.md)
 * [Redis](redis/redis.md)
 

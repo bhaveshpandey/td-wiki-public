@@ -1,4 +1,4 @@
-# Redis
+# Redis
 
 Connecting to a Redis instance using shell. For this, **redis-cli** must be installed.
 

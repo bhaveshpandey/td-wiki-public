@@ -11,5 +11,6 @@ from pxr import Sdf
 ## Creating a Stage
 ```python
 stg = pxr.Usd.Stage.CreateNew("foo.usda")
+stg.DefinePrim("/world")
 stg.Save()
 ```

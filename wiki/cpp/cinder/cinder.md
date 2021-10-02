@@ -1,4 +1,6 @@
-# Cinder
+# Cinder
+
+Cinder is a framework for creative coding using C++.
 
 ## Resources
 
