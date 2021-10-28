@@ -20,11 +20,18 @@ setup(
 
 ```python
 
-# Following statement will install the package locally.
+ # Following statement will install the package locally.
 pip install -e .
 
 # Following statement will install the package locally along with the "dev" package.
-pip install -e .[dev]
+pip install -e ."[dev]"
+```
+
+## Uploading to PyPI Python Packaging Index
+
+```python
+
+twine
 ```
 
 

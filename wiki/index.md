@@ -13,6 +13,7 @@ Welcome to the wiki.
 * [Python](python/python.md)
 * [C++](cpp/cpp.md)
 * [Git](git/git.md)
+* [Ansible](ansible/ansible.md)
 
 ## Database
 * [Neo4J](neo4j/neo4j.md)
