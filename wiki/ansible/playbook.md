@@ -121,4 +121,5 @@ ansible-playbook --inventory=inventory testplay.yml --extra-vars="ssh_pass=<SSH_
 
 ## Resources
 
+* [Configure Ubuntu Server setup using Ansible Playbook](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-automate-initial-server-setup-on-ubuntu-18-04)
 * [Shell examples](https://www.middlewareinventory.com/blog/ansible-shell-examples/)
