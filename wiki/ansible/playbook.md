@@ -3,7 +3,7 @@
 Ansible Playbooks are a set of instructions to be followed when executing tasks. It usually is in form of a YAML file.
 
 
-### Example
+### Example
 
 For the following examples we will be using a bare-bones playbook file which will have contents as below.
 
@@ -30,7 +30,7 @@ For the following examples we will be using a bare-bones playbook file which wil
 
     - name: Example showing how to pass arguments within playbook from CLI
       shell: |
-        echo "{{some_var_foo}}"
+        echo "{{some_var_foo}}" > ~/foo.txt
         exit 0
 ```
 
@@ -44,14 +44,17 @@ foo
 bar
 
 [all:vars]
-ansible_user=<USER_NAME>
+ansible_user=some_user_blah
 ansible_ssh_pass=<USER_PASS>
+ansible_become_pass=<SUDO_PASS>
 become=yes
 become_user=root
 
 ```
 
-### Executing Playbooks
+A more secure version of this inventory can be seen below in the **Passing arguments to Playbook**.
+
+### Executing Playbooks
 
 We can run the above playbook using `ansible-playbook` command. However, before executing any plays, its good practice to syntax check the playbook. We can do this as follows.
 
@@ -86,6 +89,35 @@ ansible-playbook --inventory=inventory testplay.yml --extra-vars "some_var_foo='
 ```
 
 As can be seen above, we are passing `some_var_foo` as `extra-vars` which is then accessed from within the **Playbook** using jinja notation `"{{some_var_foo}}"`.
+
+Using the above technique, we can also secure our playbooks by passing the passwords as extra-vars
+
+```shell
+
+...
+
+[all:vars]
+ansible_user=some_user_blah
+ansible_ssh_pass="{{ssh_pass}}"
+ansible_become_pass="{{sudo_pass}}"
+become=yes
+become_user=root
+```
+
+And ansible-playbook can now be run by supplying ssh_pass as an extra-vars
+
+```shell
+
+ansible-playbook --inventory=inventory testplay.yml --extra-vars="ssh_pass=<SSH_PASS> sudo_pass=<SUDO_PASS>"
+```
+
+Or better yet, by using the `-K` flag (ask become password) which allows users to interactively supply a password. But for this to work, we will need to remove the `ansible_become_pass="{{sudo_pass}}"` line from the inventory.
+
+```shell
+
+ansible-playbook --inventory=inventory testplay.yml --extra-vars="ssh_pass=<SSH_PASS>" -K
+```
+
 
 ## Resources
 

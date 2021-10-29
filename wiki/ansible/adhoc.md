@@ -16,7 +16,7 @@ become_user=root
 ```
 
 
-### Ping
+### Ping
 
 Following command using the `ping` module to communicate with the `london` host from the specified `inventory` file.
 
@@ -25,7 +25,7 @@ Following command using the `ping` module to communicate with the `london` host 
 ansible all --inventory=inventory -m ping
 ```
 
-### Reboot
+### Reboot
 
 Rebooting a host/machine remotely using Ansible using `reboot` module.
 
@@ -41,7 +41,7 @@ where:
 * -b: become root user
 * -K: ask for password. Without this flag, ansible will give an error.
 
-### Creating Users
+### Creating Users
 
 We can create users on host machines easily as follows.
 
@@ -58,7 +58,7 @@ ansible-doc user
 
 As can be seen in the documentation for the `user` module, `name` is a mandatory argument.
 
-### Installing packages
+### Installing packages
 
 We can also install packages using Adhoc commands using 2 different approaches.
 1. Options
