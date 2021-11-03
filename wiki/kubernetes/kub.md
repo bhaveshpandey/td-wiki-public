@@ -1,10 +1,10 @@
-# Kubernetes
+# Kubernetes
 
 Kubernetes is a container orchastration engine.
 
-## kubectl
+## kubectl
 
-### Autocompletion
+### Autocompletion
 
 A few extra steps are required for kubectl to work seamlessly with ZSH/BASH autocompletion. Lets have a look at each of these below.
 
@@ -28,27 +28,49 @@ Setting up autocompletion for bash involves a few more steps [outlined in the do
 
 For brevity, I will document these briefly here.
 
-1. Make sure `bash-completion` is installed.  `sudo apt install bash-completion`
-2. Source completion script in your bashrc. `echo 'source <(kubectl completion bash)' >>~/.bashrc`
-3. Add the completion script to `/etc/bash_completion.d` dir:  `kubectl completion bash >/etc/bash_completion.d/kubectl`
+1. Make sure `bash-completion` is installed.
+    ```shell
+
+    sudo apt install bash-completion
+    ```
+2. Source completion script in your bashrc.
+    ```shell
+
+    echo 'source <(kubectl completion bash)' >>~/.bashrc
+    ```
+3. Add the completion script to `/etc/bash_completion.d` dir.
+    ```
+
+    kubectl completion bash >/etc/bash_completion.d/kubectl
+    ```
 
 Autocompletion for kubectl should now be available on BASH.
 
 
 ## Misc
 
+```shell
+
 kubectl get pods -A
 
 kubectl get nodes
 
 kubectl config get-contexts
+```
 
 ## Creating namespaces
+
+```shell
 
 kubectl create namespace dev
 kubectl create namespace staging
 kubectl create namespace prod
+```
 
+## K3S
 
 * [K3S](k3s.md)
+
+## K3D
+
 * [K3D](k3d.md)

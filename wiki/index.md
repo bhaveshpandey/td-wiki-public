@@ -16,7 +16,7 @@ Welcome to the wiki.
 * [Ansible](ansible/ansible.md)
 * [Kubernetes](kubernetes/kub.md)
 
-## Hardware
+## Hardware
 * [Raspberry Pi](hardware/rpi/rpi.md)
 * [Arduino](hardware/arduino/arduino.md)
 
