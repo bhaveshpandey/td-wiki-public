@@ -1,4 +1,4 @@
-# K3D
+# K3D
 
 Kubernetes in a Docker container.
 
@@ -28,7 +28,7 @@ k3d cluster list
 ```
 
 
-## Deleting clusters
+## Deleting clusters
 
 ```shell
 
@@ -36,7 +36,7 @@ k3d cluster delete foo-cluster
 ```
 
 
-## Config file
+## Config file
 
 Running commands in cli to interact with k3d is useful for quick probing and tests however being able to define all the configuration in a config file makes things `reusable`, `deterministic` and `modular`.
 
