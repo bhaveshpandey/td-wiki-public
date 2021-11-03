@@ -31,15 +31,17 @@ Rebooting a host/machine remotely using Ansible using `reboot` module.
 
 ```shell
 
-ansible all --inventory=inventory -m reboot -a reboot_timeout=3600 -u atoi -b -K
+ansible all --inventory=inventory -m reboot -a reboot_timeout=3600 -b -K
 ```
 
 where:
-* -a: flag to specify arguments to the reboot module.
-* -reboot_timeout: time to wait after reboot in seconds. 3600 means 60mins.
+* -a: flag to specify arguments to the reboot module
+* -reboot_timeout: time to wait after reboot in seconds. 3600 means 60mins
 * -u: remote user
 * -b: become root user
-* -K: ask for password. Without this flag, ansible will give an error.
+* -K: ask for password. Without this flag, ansible will give an error
+
+**-b is very important in the above example**
 
 ### Creating Users
 

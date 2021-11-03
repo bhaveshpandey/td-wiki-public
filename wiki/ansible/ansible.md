@@ -40,6 +40,9 @@ Playbooks allow users to execute multiple tasks on several hosts in an efficient
 
 * [Playbook](playbook.md)
 
+
 ## Resources
 
+* [Ansible Google Groups](https://groups.google.com/g/ansible-project)
 * [Configure Ubuntu Server setup using Ansible Playbook](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-automate-initial-server-setup-on-ubuntu-18-04)
+* [Sudo in Ansible using become](https://www.middlewareinventory.com/blog/ansible-sudo-ansible-become-example/)

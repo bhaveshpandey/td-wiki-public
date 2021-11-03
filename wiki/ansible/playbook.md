@@ -30,9 +30,16 @@ For the following examples we will be using a bare-bones playbook file which wil
 
     - name: Example showing how to pass arguments within playbook from CLI
       shell: |
-        echo "{{some_var_foo}}" > ~/foo.txt
+        echo "{{some_var_foo}}: {{ ansible_eth0.ipv4.address }}" > ~/foo.txt
         exit 0
 ```
+
+---
+
+Note:
+
+We can access the current host's IP address, using `{{ ansible_eth0.ipv4.address }}` as shown in the above example.
+---
 
 We will be using the above playbook in conjunction with following inventory file.
 
@@ -117,7 +124,6 @@ Or better yet, by using the `-K` flag (ask become password) which allows users t
 
 ansible-playbook --inventory=inventory testplay.yml --extra-vars="ssh_pass=<SSH_PASS>" -K
 ```
-
 
 ## Resources
 
