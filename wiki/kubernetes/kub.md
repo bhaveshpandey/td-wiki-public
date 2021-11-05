@@ -56,6 +56,8 @@ kubectl get pods -A
 kubectl get nodes
 
 kubectl config get-contexts
+
+kubectl config use-context NAME_OF_CONTEXT_TO_SWITCH_TO
 ```
 
 ## Creating namespaces
@@ -65,6 +67,13 @@ kubectl config get-contexts
 kubectl create namespace dev
 kubectl create namespace staging
 kubectl create namespace prod
+```
+
+We can list all the namespaces as follows.
+
+```shell
+
+kubectl get namespaces
 ```
 
 ## K3S

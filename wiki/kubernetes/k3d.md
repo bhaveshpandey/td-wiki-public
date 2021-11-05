@@ -1,6 +1,6 @@
 # K3D
 
-Kubernetes in a Docker container.
+Kubernetes (K3S) in a Docker container.
 
 ## Creating clusters
 
@@ -25,6 +25,7 @@ We can list all the clusters using the list subcommand as follows.
 ```shell
 
 k3d cluster list
+k3d node list
 ```
 
 
@@ -53,9 +54,6 @@ ports:
 - port: 80:80
   nodeFilters:
   - loadBalancer
-
-# options:
-#   k3s:
 ```
 
 Now we can create clusters using this config file as shown below.
@@ -63,4 +61,25 @@ Now we can create clusters using this config file as shown below.
 ```shell
 
 k3d cluster create --config /path/to/config.yml
+```
+
+## Adding nodes
+
+We can also add nodes to an already existing cluster with ease. Below is a quick example showing this.
+
+```shell
+
+k3d node create --help
+k3d node create new_node_name -c CLUSTER_NAME -r NUM_AGENTS --role agent
+```
+
+[K3D]() allows us to create and manage multiple clusters locally with relative ease. However when using `kubectl` to interact with these clusters, it will always communicate with the last cluster which was created. If we need to communicate with another cluster, we will need to explicitly specify the context. This is shown below.
+
+```shell
+
+# Get a list of all available contexts
+kubectl config get-contexts
+
+# Explicitly ask kubectl to communicate with another cluster
+kubectl config use-context OTHER_CONTEXT_NAME
 ```

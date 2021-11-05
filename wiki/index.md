@@ -13,6 +13,7 @@ Welcome to the wiki.
 * [Python](python/python.md)
 * [C++](cpp/cpp.md)
 * [Git](git/git.md)
+* [Docker](docker/docker.md)
 * [Ansible](ansible/ansible.md)
 * [Kubernetes](kubernetes/kub.md)
 
