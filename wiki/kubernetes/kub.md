@@ -58,6 +58,13 @@ kubectl get nodes
 kubectl config get-contexts
 
 kubectl config use-context NAME_OF_CONTEXT_TO_SWITCH_TO
+
+# Get the config map for traefik deployment
+kubectl -n kube-system describe deploy traefik
+
+# Get the config map
+kubectl -n kube-system get cm
+
 ```
 
 ## Creating namespaces

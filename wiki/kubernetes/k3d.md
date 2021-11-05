@@ -82,4 +82,7 @@ kubectl config get-contexts
 
 # Explicitly ask kubectl to communicate with another cluster
 kubectl config use-context OTHER_CONTEXT_NAME
+
+# Get config file contents for a cluster
+k3d kubeconfig get NAME_OF_CLUSTER
 ```
