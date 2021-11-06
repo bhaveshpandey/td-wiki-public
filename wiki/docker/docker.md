@@ -1,8 +1,8 @@
 # Docker
 
-## Installation
+## Installation
 
-### OSX
+### OSX
 
 ```shell
 
@@ -12,7 +12,7 @@ brew install --cask docker
 
 * [On OSX](https://www.cprime.com/resources/blog/docker-on-mac-with-homebrew-a-step-by-step-tutorial/)
 
-### Linux
+### Linux
 
 Installation on Linux is fairly straight-forward. Follow the guide below.
 
@@ -114,7 +114,7 @@ docker run -it --rm -v `PATH/TO/MOUNT`:/MOUNT_NAME 'foo-something:0.1'
 * `MOUNT_NAME` is the directory it is mapped to within the docker container.
 
 
-## Port Mapping
+## Port Mapping
 
 ```shell
 
@@ -125,18 +125,18 @@ docker run -h funky_panda -p 8000:80 blah:0.2
 ```
 
 
-## Running containers
+## Running containers
 
 We can run a container in a few different ways.
 
-### Interactive mode (with terminal)
+### Interactive mode (with terminal)
 
 ```shell
 
 docker run -it <IMAGE_TAG>
 ```
 
-### Interactive Detached mode
+### Interactive Detached mode
 
 ```shell
 
@@ -155,7 +155,7 @@ docker exec 213hdsu3jmbj2b1 ls -lrth
 ```
 
 
-## Inspecting Running Containers
+## Inspecting Running Containers
 
 
 Specifying a filter to extract required data from the inspect command.
@@ -180,7 +180,7 @@ docker inspect -f "{{range .NetworkSettings.Networks}} MAC: {{.MacAddress}} IP: 
 
 The above command will extract the Config.Env from the json data returned by inspect command.
 
-## [Docker Compose](dockercompose.md)
+## [Docker Compose](dockercompose.md)
 
 ## Resources
 
