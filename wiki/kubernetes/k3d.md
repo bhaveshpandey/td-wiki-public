@@ -86,3 +86,10 @@ kubectl config use-context OTHER_CONTEXT_NAME
 # Get config file contents for a cluster
 k3d kubeconfig get NAME_OF_CLUSTER
 ```
+
+## Importing Docker Images Into Cluster
+
+```shell
+
+k3d image import --cluster MY_CLUSTER_FOO image_to_import:v1.0
+```

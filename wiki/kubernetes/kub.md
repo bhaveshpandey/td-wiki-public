@@ -16,7 +16,6 @@ For all my ZSH needs, I lean quite heavily on [oh-my-zsh](https://github.com/ohm
 
 plugins = (
     kubectl
-    k3d
 )
 ```
 As shown above, we simply need to specify `kubectl` and `k3d` for adding support for autocompletion in `ZSH`.
@@ -52,6 +51,8 @@ Autocompletion for kubectl should now be available on BASH.
 ```shell
 
 kubectl get pods -A
+
+kubectl get pods -Ao wide
 
 kubectl get nodes
 

@@ -1,5 +1,23 @@
 # Docker
 
+## Installation
+
+### OSX
+
+```shell
+
+# Following will install docker-desktop and cli. This seems to be the easiest way I could find to install Docker on OSX
+brew install --cask docker
+```
+
+* [On OSX](https://www.cprime.com/resources/blog/docker-on-mac-with-homebrew-a-step-by-step-tutorial/)
+
+### Linux
+
+Installation on Linux is fairly straight-forward. Follow the guide below.
+
+* [Install instructions on linux](https://docs.docker.com/engine/install/ubuntu/)
+
 ## Common commands
 
 Some of the most common commands for querying docker images, containers etc are listed as follows.
@@ -10,9 +28,39 @@ docker image ls
 docker container ls
 docker ps
 docker rm
+docker pull
+docker push
+
+docker inspect <CONTAINER_ID/CONTAINER_NAME>
+docker logs <CONTAINER_ID>
+docker logs -f <CONTAINER_ID>
+docker stats <CONTAINER_ID>
+
+docker start <CONTAINER_ID>
+docker stop <CONTAINER_ID>
+docker restart <CONTAINER_ID>
 
 docker build -t <TAG_NAME> .
 docker run <IMAGE_NAME>
+
+# Passing Env vars to docker container and also defining an explicit name of the container.
+# Note the name HAS to be unique
+docker run -it --name="NEW_CONTAINER_NAME" -e NEO4J_PASSWORD 'SomeSecureShit' <IMAGE_TAG_TO_RUN> <COMMAND>
+
+# Run a container in detached mode
+docker run -d
+
+# List all dangling images
+docker image ls --filter=dangling
+
+# Create another image with changes done in a source image interactively
+docker commit SRC_IMAGE <tag>
+
+# Show history of an image
+docker image history <IMAGE_TAG>
+
+# Inspect docker images
+docker image inspect <IMAGE_TAG>
 ```
 
 ## Bare-bones example
@@ -50,7 +98,7 @@ We can also run this in interactive mode as follows:
 docker run -it --rm foo-something:0.1
 ```
 
-## Volume Mounting
+## Volume Mapping
 
 Often times we require access to persistent data within our docker containers. This can be achieved by mounting volumes with the `-v` flag as shown below.
 
@@ -66,6 +114,75 @@ docker run -it --rm -v `PATH/TO/MOUNT`:/MOUNT_NAME 'foo-something:0.1'
 * `MOUNT_NAME` is the directory it is mapped to within the docker container.
 
 
+## Port Mapping
+
+```shell
+
+# This will have following format
+# docker run -h <HOST_NAME> -p <LOCALHOST_PORT/DOCKER_SERVER_PORT>:<CONTAINER_PORT> <IMAGE_TAG_TO_RUN>
+
+docker run -h funky_panda -p 8000:80 blah:0.2
+```
+
+
+## Running containers
+
+We can run a container in a few different ways.
+
+### Interactive mode (with terminal)
+
+```shell
+
+docker run -it <IMAGE_TAG>
+```
+
+### Interactive Detached mode
+
+```shell
+
+docker run -itd <IMAGE_TAG>
+```
+
+In this mode the container stays up and we can interact with it and send commands to it as follows.
+
+```shell
+
+# These commands can be in following format
+# docker exec <CONTAINER_ID> <COMMAND>
+
+# The following command will execute the ls -lrth command in the active container with specified Container ID
+docker exec 213hdsu3jmbj2b1 ls -lrth
+```
+
+
+## Inspecting Running Containers
+
+
+Specifying a filter to extract required data from the inspect command.
+
+```shell
+
+docker inspect -f "{{.Config.Env}}" <CONTAINER_ID/CONTAINER_NAME>
+docker inspect -f "{{.NetworkSettings}}" wizardly_me
+docker inspect -f "{{.State.Status}}" wizardly_me
+docker inspect -f "{{.Config.Hostname}}" wizardly_me
+docker inspect -f "{{.Mounts}}" wizardly_me
+docker inspect -f "{{.State.Pid}}" wizardly_me
+
+# Looping over values in the map
+docker inspect -f "{{range .NetworkSettings.Networks}} {{.IPAddress}}  {{end}}" wizardly_ramanujan
+
+# Display IPAddress with a label of IP:
+docker inspect -f "{{range .NetworkSettings.Networks}} IP: {{.IPAddress}}  {{end}}" wizardly_ramanujan
+
+docker inspect -f "{{range .NetworkSettings.Networks}} MAC: {{.MacAddress}} IP: {{.IPAddress}}  {{end}}" wizardly_ramanujan
+```
+
+The above command will extract the Config.Env from the json data returned by inspect command.
+
+## [Docker Compose](dockercompose.md)
+
 ## Resources
 
 * [Complete Docker Course 2020](https://www.youtube.com/watch?v=O-z_vUr53iU&list=PLnFWJCugpwfzyZ7NbYVyajGIVjEsZK5JT)
+* [Dockerize any application](https://hackernoon.com/how-to-dockerize-any-application-b60ad00e76da)
