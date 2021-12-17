@@ -18,6 +18,10 @@ Installation on Linux is fairly straight-forward. Follow the guide below.
 
 * [Install instructions on linux](https://docs.docker.com/engine/install/ubuntu/)
 
+Post install steps
+
+* [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/)
+
 ## Common commands
 
 Some of the most common commands for querying docker images, containers etc are listed as follows.
@@ -180,9 +184,35 @@ docker inspect -f "{{range .NetworkSettings.Networks}} MAC: {{.MacAddress}} IP: 
 
 The above command will extract the Config.Env from the json data returned by inspect command.
 
+
+## Running Container with an Enntrypoint override
+
+This is quite often required to interactively see what the internals of a container look like to expedite debug process and can be done using the `--entrypoint` flag as shown below.
+
+```shell
+
+# Override the entrypoint to be a bash shell
+docker run -it -v `pwd`:/build --entrypoint /bin/bash simple_test:0.1
+
+# Execute a bash shell within the container
+docker exec -it <CONTAINER_ID/CONTAINER_NAME> bash
+```
+
+The above command overrides the entrypoint of a Docker container to be `/bin/bash` so we can interact with bash and inspect the internals of the Docker image.
+
+
+## Build Args
+
+Build args provides us the mechanism to define variables which can be specified at buildtime by a user and are accessible within the Dockerfile.
+
+
 ## [Docker Compose](dockercompose.md)
 
 ## Resources
 
+* [Working with docker and registry](https://gist.github.com/kalaspuffar/334f81d11da28df6fa8dbf24910935b0)
+* [Creating docker image from scratch and adding to local registry](https://www.youtube.com/watch?v=zqH_G0yNEDw)
+
+* [Dockerfile - Best practices - Docker Con 2019](https://www.youtube.com/watch?v=JofsaZ3H1qM)
 * [Complete Docker Course 2020](https://www.youtube.com/watch?v=O-z_vUr53iU&list=PLnFWJCugpwfzyZ7NbYVyajGIVjEsZK5JT)
 * [Dockerize any application](https://hackernoon.com/how-to-dockerize-any-application-b60ad00e76da)

@@ -24,3 +24,37 @@ Have a look at this blogpost:
 ```git
 git restore /path/to/file
 ```
+
+## Creating an empty branch
+
+Recently, I realized that creating a new repo/project on Gitlab doesn't create a default main branch.
+Unfortunately I had already setup a feature branch to work on (not realising about the non-existent main branch). This also made this feature branch the default branch (yikes!).
+
+To remedy this, I created an empty **main** branch, pushed that to remote. Set that as the new default and merged the feature branch in as usual. I think this can be quite handy in a tricky situation.
+
+```shell
+
+# Create an orphan branch
+git checkout --orphan main
+
+# Remove all the contents
+git rm -rf .
+
+# Need at least one commit before we can push to github/gitlab
+git commit --allow-empty -m "main branch. freshly minted :)"
+
+# Push
+git push -u origin main
+```
+
+## Extract a child directory inside a repo into a separate git repo
+
+This is incredibly useful for the times when we need to restructure a git repository.
+
+[Git filter-repo example](https://ptc-it.de/move-files-to-new-repo-in-git/)
+
+```shell
+
+git remote remove origin
+git filter-repo --path "path/to/file1" --path "path/to/file2" --path "dir1"
+```

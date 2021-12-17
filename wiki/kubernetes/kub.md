@@ -82,7 +82,12 @@ We can list all the namespaces as follows.
 ```shell
 
 kubectl get namespaces
+
 ```
+
+## Role Based Access Control
+
+* [RBAC](rbac.md)
 
 ## K3S
 

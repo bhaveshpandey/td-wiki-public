@@ -16,6 +16,7 @@ Welcome to the wiki.
 * [Docker](docker/docker.md)
 * [Ansible](ansible/ansible.md)
 * [Kubernetes](kubernetes/kub.md)
+* [Gitlab](gitlab/gitlab.md)
 
 ## Hardware
 * [Raspberry Pi](hardware/rpi/rpi.md)

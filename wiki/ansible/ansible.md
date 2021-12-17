@@ -1,5 +1,20 @@
 # Ansible
 
+## Installation
+
+We can install Ansible on ubuntu as following.
+
+```shell
+
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+```
+
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-ubuntu
+
+
 Ansible is an open-source software provisioning, configuration management, and application-deployment tool enabling infrastructure as code.
 
 **Ansible** can be used to execute batch commands over a large number of hosts/machines, as long as they are accessible via **SSH**.

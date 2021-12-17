@@ -27,11 +27,19 @@ pip install -e .
 pip install -e ."[dev]"
 ```
 
+
 ## Uploading to PyPI Python Packaging Index
+
+Building the package
+
+```shell
+
+python setup.py sdist bdist_wheel
+```
 
 ```python
 
-twine
+twine upload dist/*
 ```
 
 

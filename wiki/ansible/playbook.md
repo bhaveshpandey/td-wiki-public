@@ -122,6 +122,38 @@ Or better yet, by using the `-K` flag (ask become password) which allows users t
 ansible-playbook --inventory=inventory testplay.yml --extra-vars="ssh_pass=<SSH_PASS>" -K
 ```
 
+
+## Trigger tasks using user input from shell
+
+Consider the following playbook.
+
+```yaml
+
+---
+- hosts: all
+  become: true
+  vars:
+    - run_foo: false
+
+  tasks:
+    - name: Optional task only run when user specifies a value using extra-vars
+      debug:
+        msg: echo Blah
+      changed_when: false
+      when: run_foo == 'true'
+
+```
+
+In the above playbook, we have defined a task which will **only** execute `iff` the value of variable `run_foo` evaluates to `'true'`. Note, the `''` around the value. This is important!
+
+Since the variable is initialized to `false`, the only way scenario this task gets executed is when user passes the `run_foo` value using `--extra-vars` flag as follows.
+
+```shell
+
+ansible-playbook main.yml --extra-vars="run_foo='true'"
+```
+
+
 ## [Sample Playbooks](playbooks/playbooks.md)
 
 ## Resources
