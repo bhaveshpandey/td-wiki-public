@@ -17,6 +17,7 @@ brew install --cask docker
 Installation on Linux is fairly straight-forward. Follow the guide below.
 
 * [Install instructions on linux](https://docs.docker.com/engine/install/ubuntu/)
+* [Install instructions for Linux Mint](https://www.how2shout.com/linux/2-ways-to-install-docker-engine-on-linux-mint/)
 
 Post install steps
 

@@ -19,6 +19,16 @@ Ansible is an open-source software provisioning, configuration management, and a
 
 **Ansible** can be used to execute batch commands over a large number of hosts/machines, as long as they are accessible via **SSH**.
 
+## Prerequisites
+
+To be able to authenticate using ssh password with the host machines, we also need to install a package called `sshpass`
+On Ubuntu, it can be installed with
+
+```shell
+
+sudo apt install sshpass -y
+```
+
 ## Navigating Ansible documentation from CLI
 
 If you remember anything from this, remember this:
@@ -62,3 +72,5 @@ Playbooks allow users to execute multiple tasks on several hosts in an efficient
 * [Ansible Google Groups](https://groups.google.com/g/ansible-project)
 * [Configure Ubuntu Server setup using Ansible Playbook](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-automate-initial-server-setup-on-ubuntu-18-04)
 * [Sudo in Ansible using become](https://www.middlewareinventory.com/blog/ansible-sudo-ansible-become-example/)
+* [Setting up SSH Password for ansible authentication](https://linuxhint.com/how_to_use_sshpass_to_login_for_ansible/)
+* [Configuration Variables Available](https://docs.ansible.com/ansible/2.3/intro_configuration.html#remote-tmp)

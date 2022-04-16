@@ -10,5 +10,5 @@
 ## Libraries
 
 * [Click](https://click.palletsprojects.com/en/8.0.x/)
-* [PyQt](qt/qt.md)
 * [Faust](faust.md)
+* [PyQt](qt/qt.md)

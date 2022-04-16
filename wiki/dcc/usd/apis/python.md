@@ -8,6 +8,19 @@ from pxr import Usd
 from pxr import Sdf
 ```
 
+## Show all discovered plugins
+
+Following snippet shows how `pxr.Plug` module can be used to list all the discovered plugins.
+
+```python
+
+from pxr import Plug
+for plugin in Plug.Registry().GetAllPlugins():
+    print('Plugin: "{plugin.name}" is loaded: "{plugin.isLoaded}".'.format(plugin=plugin))
+    print('Path: "{plugin.path}".'.format(plugin=plugin))
+```
+
+
 ## Creating a Stage
 ```python
 stg = pxr.Usd.Stage.CreateNew("foo.usda")

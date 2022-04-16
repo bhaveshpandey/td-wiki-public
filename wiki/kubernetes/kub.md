@@ -2,7 +2,46 @@
 
 Kubernetes is a container orchastration engine.
 
+## Cheat Sheet
+
+[Kubernetes cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#viewing-finding-resources)
+
+
+## Key Concepts
+
+**Following is an illustration of a basic K8s hierarchy**
+
+Cluster
+    |__
+    Worker Node
+        |__
+            Pod
+            |__
+                Container
+                    |__
+                        Application
+
+* Master Node (Control Plane)
+* Worker Node
+* Pod - Smallest unit of a K8s cluster.
+* Container
+* Deployment
+* Replica Sets
+* Service
+* Namespace
+* CRD (Custom Resource Definition)
+* Persistent Volume/Volume Claim
+* API Service
+* Controller
+* Data Store
+* Scheduler
+* Kubelet
+* Kube Proxy
+
+
 ## kubectl
+
+* [Installation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management)
 
 ### Autocompletion
 
@@ -66,6 +105,9 @@ kubectl -n kube-system describe deploy traefik
 # Get the config map
 kubectl -n kube-system get cm
 
+# Tainting nodes to avoid deploying workloads on master nodes
+kubectl taint nodes <MASTER-NODE-NAME> node-role.kubernetes.io/master=true:NoSchedule
+
 ```
 
 ## Creating namespaces
@@ -84,6 +126,17 @@ We can list all the namespaces as follows.
 kubectl get namespaces
 
 ```
+
+## Force clearing PV, PVC
+
+Sometimes deleting `pv,pvc` using `kubectl delete` doesn't remove the volumes or the claims. This can be forced by setting the `finalizers` to `null` explicitly as follows.
+
+```shell
+
+kubectl patch pvc <PVC_NAME> -p '{"metadata":{"finalizers":null}}'
+kubectl patch pv <PV_NAME> -p '{"metadata":{"finalizers":null}}'
+```
+
 
 ## Role Based Access Control
 

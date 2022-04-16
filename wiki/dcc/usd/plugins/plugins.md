@@ -35,6 +35,15 @@ This file is placed in a path specified by **PXR_PLUGINPATH_NAME** so DCCs can l
 export PXR_PLUGINPATH_NAME=/path/to/directory/containing/plugInfo.json
 ```
 
+This data can also be set using `VEX` as follows:
+
+```c
+
+usd_setmetadata(0, s@primpath, "customData:scenefile", "@blah.usd@");
+usd_setmetadata(0, s@primpath, "customData:foo", "/blah");
+```
+
+
 ## Resources
 
 * [Adding Custom Metadata to USD items](https://github.com/ColinKennedy/USD-Cookbook/blob/master/references/working_with_plugins.md#Extend-Metadata)
