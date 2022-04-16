@@ -202,7 +202,7 @@ docker exec -it <CONTAINER_ID/CONTAINER_NAME> bash
 The above command overrides the entrypoint of a Docker container to be `/bin/bash` so we can interact with bash and inspect the internals of the Docker image.
 
 
-## Build Args
+## Build Args
 
 Build args provides us the mechanism to define variables which can be specified at buildtime by a user and are accessible within the Dockerfile.
 

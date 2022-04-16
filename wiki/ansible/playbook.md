@@ -123,7 +123,7 @@ ansible-playbook --inventory=inventory testplay.yml --extra-vars="ssh_pass=<SSH_
 ```
 
 
-## Trigger tasks using user input from shell
+## Trigger tasks using user input from shell
 
 Consider the following playbook.
 

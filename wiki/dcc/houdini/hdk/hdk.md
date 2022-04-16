@@ -1,4 +1,4 @@
-#  Houdini Development Kit
+# Houdini Development Kit
 
 ## Resources
 

@@ -28,7 +28,7 @@ pip install -e ."[dev]"
 ```
 
 
-## Uploading to PyPI Python Packaging Index
+## Uploading to PyPI Python Packaging Index
 
 Building the package
 

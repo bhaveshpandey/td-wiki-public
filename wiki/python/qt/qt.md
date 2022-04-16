@@ -1,5 +1,5 @@
-# PyQt
+# PyQt
 
-## Resources
+## Resources
 
 * [Tutorials](https://wiki.python.org/moin/PyQt/Tutorials)

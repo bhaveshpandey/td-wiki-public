@@ -2,7 +2,7 @@
 
 Following are some tips and tricks which I have found useful over time.
 
-## Multiple accounts using ssh keys (Github / Gitlab)
+## Multiple accounts using ssh keys (Github / Gitlab)
 
 This is not really directly related to git however important and relevent enough to find a mention here. Authentication over ssh while maintaining multiple accounts over multiple services (Github, Gitlab etc) is really annoying.
 
@@ -25,7 +25,7 @@ Have a look at this blogpost:
 git restore /path/to/file
 ```
 
-## Creating an empty branch
+## Creating an empty branch
 
 Recently, I realized that creating a new repo/project on Gitlab doesn't create a default main branch.
 Unfortunately I had already setup a feature branch to work on (not realising about the non-existent main branch). This also made this feature branch the default branch (yikes!).
@@ -47,7 +47,7 @@ git commit --allow-empty -m "main branch. freshly minted :)"
 git push -u origin main
 ```
 
-## Extract a child directory inside a repo into a separate git repo
+## Extract a child directory inside a repo into a separate git repo
 
 This is incredibly useful for the times when we need to restructure a git repository.
 

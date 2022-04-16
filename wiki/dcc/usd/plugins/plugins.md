@@ -44,6 +44,6 @@ usd_setmetadata(0, s@primpath, "customData:foo", "/blah");
 ```
 
 
-## Resources
+## Resources
 
 * [Adding Custom Metadata to USD items](https://github.com/ColinKennedy/USD-Cookbook/blob/master/references/working_with_plugins.md#Extend-Metadata)

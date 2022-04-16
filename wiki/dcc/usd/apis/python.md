@@ -1,8 +1,8 @@
-# Python
+# Python
 
 USD's python API is simply a boost python wrapper around their C++ API. For all intents and purposes, view the USD C++ documentation to get insights on their python API.
 
-## Imports
+## Imports
 ```python
 from pxr import Usd
 from pxr import Sdf
@@ -21,7 +21,7 @@ for plugin in Plug.Registry().GetAllPlugins():
 ```
 
 
-## Creating a Stage
+## Creating a Stage
 ```python
 stg = pxr.Usd.Stage.CreateNew("foo.usda")
 stg.DefinePrim("/world")
@@ -40,7 +40,7 @@ path = resolver.Resolve("comp/task.usda")
 ```
 
 
-## Traversing References within a stage
+## Traversing References within a stage
 ```python
 from pxr import Usd
 
