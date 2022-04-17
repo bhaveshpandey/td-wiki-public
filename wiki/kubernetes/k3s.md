@@ -1,21 +1,30 @@
 # K3S
 
-## Installation
+## Installation
 
-Installing on master node.
+**Installing on master node**
 
-curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" sh -s -
+```shell
+curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" K3S_NODE_NAME="grid-rpi4-master1" sh -s -
 cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 export KUBECONFIG=~/.kube/config
+```
+
+To access the cluster from another machine, copy the `KUBECONFIG` to the machine and change the
+`IP address` to the master nodes `IP address`.
+
+We can use `scp` for this, as follows:
+
+`scp <USER>@HOST:~/.kube/config ~/.kube/config`
 
 **Installing without Traefik**
 
-curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="--no-deploy traefik" sh -s -
+`curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" K3S_NODE_NAME="grid-rpi4-master1" INSTALL_K3S_EXEC="--no-deploy traefik" sh -s -`
 
 
 Installing on another machine and joining the master
 
-
+`curl -sfL https://get.k3s.io | K3S_TOKENN="<K3S_TOKEN>" K3S_URL="https://172.0.0.1:6443" K3S_NODE_NAME="grid-rpi4-worker1" sh -`
 
 
 ## Restart a node
