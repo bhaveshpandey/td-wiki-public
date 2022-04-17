@@ -46,6 +46,6 @@ cat /var/lib/rancher/k3s/server/node-token
 curl -sfL https://get.k3s.io | K3S_TOKEN="TOKEN_FROM_MASTER_NODE" K3S_URL="https://IP_ADDRESS_OF_MASTER" K3S_NODE_NAME="raspi-worker1" sh -
 
 
-## Official Rancher Installation Guide
+## Official Rancher Installation Guide
 
 * [k3s installation](https://www.rancher.co.jp/docs/k3s/latest/en/running/)
