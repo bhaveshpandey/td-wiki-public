@@ -19,7 +19,7 @@ We can use `scp` for this, as follows:
 
 **Installing without Traefik**
 
-`curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" K3S_NODE_NAME="grid-rpi4-master1" INSTALL_K3S_EXEC="--no-deploy traefik" sh -s -`
+`curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" K3S_NODE_NAME="grid-rpi4-master1" sh -s - server --cluster-init --disable traefik --disable servicelb`
 
 
 Installing on another machine and joining the master
@@ -72,3 +72,8 @@ The above command will import the image into the node (similar to k3d image impo
 
 sudo k3s ctr images list
 ```
+
+
+## References
+
+* [Raspberry Pi homelab with Kubernetes - Metallb, Ansible, Helm](https://fredrickb.com/2021/08/22/recreating-the-raspberry-pi-homelab-with-kubernetes/)
