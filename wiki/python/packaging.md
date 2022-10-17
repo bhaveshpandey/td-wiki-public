@@ -32,7 +32,7 @@ pip install -e ."[dev]"
 
 Building the package
 
-```shell
+```sh
 
 python setup.py sdist bdist_wheel
 ```
@@ -40,6 +40,24 @@ python setup.py sdist bdist_wheel
 ```python
 
 python -m twine upload dist/*
+```
+
+
+## Inspect hash of a package
+
+We can easily inspect the hash of a package available in PyPI index as follows.
+
+```sh
+
+# The following command will download the tarball or wheel which is available for the project in PyPI
+python -m pip download legos-base
+
+# We can then hash the tarball or the wheel as follows
+python -m pip hash ./legos_base-0.0.1-py3-none-any.whl
+
+# Output of above command is as follows**
+./legos_base-0.0.1-py3-none-any.whl:
+--hash=sha256:dc1be30fa5a4c035708002e80fa42528639ec0c059afddb3727d440b4a34a0c2
 ```
 
 

@@ -58,3 +58,30 @@ EXPOSE 2181 9092
 
 CMD ["supervisord", "-n"]
 ```
+
+
+## Redpanda
+
+### Redpanda setup
+
+Install Cert-manager
+
+```sh
+
+helm repo add jetstack https://charts.jetstack.io && \
+helm repo update && \
+helm install \
+  cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --create-namespace \
+  --version v1.8.0 \
+  --set installCRDs=true
+```
+
+clone the `Redpanada helm chart`.
+
+`https://github.com/redpanda-data/helm-charts.git`
+
+From the root of the above repo, execute the following.
+
+`helm install redpanda redpanda -n redpanda --create-namespace`

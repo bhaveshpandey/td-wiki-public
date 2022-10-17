@@ -1,5 +1,7 @@
 # Docker
 
+* [Docker Registries](registries.md)
+
 ## Installation
 
 ### OSX
@@ -22,6 +24,24 @@ Installation on Linux is fairly straight-forward. Follow the guide below.
 Post install steps
 
 * [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/)
+
+### NVIDIA Docker
+
+This is required if we need to make our docker containers GPU capable.
+
+```shell
+
+distribution=$(. /etc/os-release; echo $ID$VERSION_ID) \
+      && curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+      && curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | \
+            sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+            sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+```
+
+NOTE: For `linuxmint20.3` we need to use `distribution=ubuntu20.04` as linux mint is not officially supported for `Nvidia-Docker` however `Linux Mint 20.3` is based on `Ubuntu 20.04`.
+
+[Official Nvidia-Docker Installation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
+
 
 ## Common commands
 
@@ -186,6 +206,18 @@ docker inspect -f "{{range .NetworkSettings.Networks}} MAC: {{.MacAddress}} IP: 
 The above command will extract the Config.Env from the json data returned by inspect command.
 
 
+## Pushing to Dockerhub
+
+Steps to push a local docker image to Dockerhub.
+
+```shell
+
+1. docker login --username=<USERNAME>
+2. Enter the password when prompted.
+3. docker image push <IMAGE_NAME>:tag
+```
+
+
 ## Running Container with an Enntrypoint override
 
 This is quite often required to interactively see what the internals of a container look like to expedite debug process and can be done using the `--entrypoint` flag as shown below.
@@ -208,6 +240,18 @@ Build args provides us the mechanism to define variables which can be specified 
 
 
 ## [Docker Compose](dockercompose.md)
+
+## Docker with GPU and GUI
+
+```shell
+
+xhost +si:localuser:root
+docker run -it --rm --privileged -e DISPLAY --gpus all -v /tmp/.X11-unix:/tmp/.X11-unix nvidia-test-xxx:0.1 blender
+```
+
+Following are some links to show how we can build an image with NVIDIA gpu capabilities
+
+* [How to Properly Use the GPU within a Docker Container](https://towardsdatascience.com/how-to-properly-use-the-gpu-within-a-docker-container-4c699c78c6d1)
 
 ## Resources
 

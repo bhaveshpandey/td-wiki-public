@@ -1,5 +1,13 @@
 # Gitlab
 
+## Create a remote repo from local
+
+```sh
+
+git push --set-upstream git@gitlab.com:<USER_NAME>/<NAMESPACE>/<PROJECT_NAME>.git master
+```
+
+
 ## Installing Gitlab Runners on Ubuntu
 
 To set this up, we will also need to setup [Docker](https://docs.docker.com/engine/install/ubuntu/) on all the machines which will be used as runners.

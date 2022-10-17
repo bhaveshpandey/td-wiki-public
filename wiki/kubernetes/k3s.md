@@ -19,12 +19,12 @@ We can use `scp` for this, as follows:
 
 **Installing without Traefik**
 
-`curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" K3S_NODE_NAME="grid-rpi4-master1" sh -s - server --cluster-init --disable traefik --disable servicelb`
+`curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" K3S_NODE_NAME="dehradun" sh -s - server --cluster-init --disable traefik --disable servicelb`
 
 
 Installing on another machine and joining the master
 
-`curl -sfL https://get.k3s.io | K3S_TOKENN="<K3S_TOKEN>" K3S_URL="https://172.0.0.1:6443" K3S_NODE_NAME="grid-rpi4-worker1" sh -`
+`curl -sfL https://get.k3s.io | K3S_TOKEN="<K3S_TOKEN>" K3S_URL="https://172.0.0.1:6443" K3S_NODE_NAME="bournemouth" sh -`
 
 
 ## Restart a node
@@ -74,6 +74,22 @@ sudo k3s ctr images list
 ```
 
 
+## Installing Prometheus and Grafana
+
+1. [Quick Start for K3S](https://github.com/carlosedp/cluster-monitoring#quickstart-for-k3s)
+2. Add tweaks to the `vars.jsonnet` file.
+    1. `k3s-enabled` should be `true`
+    2. Enable `armExport` (for raspberry pi)
+    3. Set the IP for the master node.
+    4. Set another worker node's IP for ingress.
+4. When running `make vendor`, there is a Go error. This is fixed by replacing `go install` with `go get` in the `Makefile` and also setting the following env var before running the `make vendor` command: `export GO111MODULE=on`
+5. run `make vendor`
+6. run `make`
+
+
 ## References
 
+* [Installing K3s Kubernetes cluster on Raspberry Pi 4](https://rpi4cluster.com/k3s/k3s-kube-setting/)
+* [MetalLB on K3S Raspberry Pi 4](https://rpi4cluster.com/k3s/k3s-nw-setting/)
+* [Official MetalLB installation guide](https://metallb.universe.tf/installation/)
 * [Raspberry Pi homelab with Kubernetes - Metallb, Ansible, Helm](https://fredrickb.com/2021/08/22/recreating-the-raspberry-pi-homelab-with-kubernetes/)

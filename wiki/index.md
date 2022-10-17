@@ -18,6 +18,7 @@ Welcome to the wiki.
 * [Ansible](ansible/ansible.md)
 * [Kubernetes](kubernetes/kub.md)
 * [Gitlab](gitlab/gitlab.md)
+* [Nix Package Manager](nix/index.md)
 
 ## Hardware
 * [Raspberry Pi](hardware/rpi/rpi.md)
@@ -27,6 +28,7 @@ Welcome to the wiki.
 * [Kafka](kafka/kafka.md)
 * [Neo4J](neo4j/neo4j.md)
 * [Redis](redis/redis.md)
+* [Elasticsearch](elasticsearch/index.md)
 
 ## Production management
 * [Shotgun](prodtech/shotgun/shotgun.md)

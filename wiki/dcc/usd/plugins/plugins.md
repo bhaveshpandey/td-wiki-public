@@ -44,6 +44,20 @@ usd_setmetadata(0, s@primpath, "customData:foo", "/blah");
 ```
 
 
+## Get all metadata keys
+
+```python
+
+from pxr import Usd, Plug
+
+x = Plug.Registry()
+#print([i.name for i in x.GetAllPlugins()])
+
+all_md = {i.name: i.metadata for i in x.GetAllPlugins()}
+print(all_md.keys())
+```
+
+
 ## Resources
 
 * [Adding Custom Metadata to USD items](https://github.com/ColinKennedy/USD-Cookbook/blob/master/references/working_with_plugins.md#Extend-Metadata)

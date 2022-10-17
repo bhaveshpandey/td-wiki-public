@@ -6,8 +6,23 @@ Kubernetes is a container orchastration engine.
 
 [Kubernetes cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#viewing-finding-resources)
 
+---
+**_NOTE:_**  If you dont remember anything, remember the `explain` subcommand.
+
+```
+kubectl explain pod
+kubectl explain pod.spec
+kubectl explain deployment
+```
+This command can be used to explain these object types and quickly see what they represent.
+
+---
+
 
 ## Key Concepts
+
+* Multi-container Pod Patterns
+
 
 **Following is an illustration of a basic K8s hierarchy**
 
@@ -23,11 +38,11 @@ Cluster
 
 * Master Node (Control Plane)
 * Worker Node
-* Pod - Smallest unit of a K8s cluster.
+* Pod - Smallest unit of a K8s cluster
 * Container
-* Deployment
+* Deployment - Responsible for keeping a set of `pods` running.
 * Replica Sets
-* Service
+* Service - Responsible for enabling network access to a set of `pods`.
 * Namespace
 * CRD (Custom Resource Definition)
 * Persistent Volume/Volume Claim
@@ -95,7 +110,18 @@ kubectl get pods -Ao wide
 
 kubectl get nodes
 
+kubectl describe <RESOURCE>
+
+kubectl explain pod.spec.volume
+
+kubectl explain service --recursive
+
+kubectl get <RESOURCE> -o yaml --export=true
+
 kubectl config get-contexts
+
+# Show labels for specified resources
+kubectl get all --show-label
 
 kubectl config use-context NAME_OF_CONTEXT_TO_SWITCH_TO
 
@@ -127,7 +153,27 @@ kubectl get namespaces
 
 ```
 
-## Force clearing PV, PVC
+## Updates / Rollouts / Rollbacks
+
+```shell
+
+# Apply the rollout by simply applying a manifest
+kubectl apply -f /path/to/manifest.yml
+
+# Check the rollout status of specific deployment
+kubectl rollout status deployment SOME_DEPLOYMENT_FOO -n test_namespace
+
+# Check the rollout history for specific deployment
+kubectl rollout history deployment SOME_DEPLOYMENT_FOO -n test_namespace
+
+# Check rollout history for all the deployments
+kubectl rollout history deployment
+
+# Rollback to another revision of a deployment
+kubectl rollout undo deployment SOME_DEPLOYMENT_FOO -n test_namespace --to-revision=1
+```
+
+## Force clearing PV, PVC (Persistent Volume, Persistent Volume Claim)
 
 Sometimes deleting `pv,pvc` using `kubectl delete` doesn't remove the volumes or the claims. This can be forced by setting the `finalizers` to `null` explicitly as follows.
 
